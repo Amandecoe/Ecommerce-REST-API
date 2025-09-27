@@ -89,9 +89,9 @@ class Review(models.Model):
 
     class Meta:
         unique_together = ["user", "product"] #a user can only have 1 review on 1 product
-        ordering = ["-created"] #the last created review is going to come first
+        ordering = ["-created_at"] #the last created review is going to come first
 
-class ProductRating (models.model):
+class ProductRating (models.Model):
     product = models.OneToOneField(Product, on_delete = models.CASCADE, related_name = 'rating')
     average_rating = models.FloatField(default = 0.0)
     total_reviews = models.PositiveIntegerField(default = 0)               

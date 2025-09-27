@@ -60,7 +60,7 @@ class CarStatSerializer(serializers.ModelSerializer):
             total = sum([item.quantity for item in items])
             return total
 
-class UserSerializer(serializer.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ["id", "first_name", "last_name", "profile_picture"]
