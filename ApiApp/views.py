@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Product, Category, Cart, CartItem
-from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer
+from django.contrib.auth import get_user_model
+from .models import Product, Category, Cart, CartItem, Review
+from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer
 
+User =  get_user_model()
 # @api_view turns a normal django view function into a REST API endpoint 
 
 @api_view(["GET"]) #this function will only support GET requests
@@ -56,3 +58,17 @@ def update_cartitem_quantity(request):
 
    serializer =  CartItemSerializer(cartitem)     
    return Response({"data": serializer.data, "message": "CartItem Updated Successfully"})
+
+@api_view(['POST'])
+def add_review(request):
+    product_id = request.data.get("product_id")
+    email = request.data.get("email")   
+    rating = request.data.get("rating")
+    review = request.data.get("review")
+
+    product = Product.objects.get( id =  product_id)
+    user = User.object.get(email = email)
+
+    review = Review.objects.create(product =  product, user = user, rating = rating, review = review_text)
+    serializer = ReviewSerializer(review)
+    return Response(serializer.data)
