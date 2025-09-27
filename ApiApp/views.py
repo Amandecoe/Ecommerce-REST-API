@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Product, Category, Cart
-from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer
+from .models import Product, Category, Cart, CartItem
+from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer
 
 # @api_view turns a normal django view function into a REST API endpoint 
 
@@ -37,9 +37,22 @@ def add_to_cart(request): #request comes from the frontend when someone adds som
 
     cart, created = Cart.objects.get_or_create(cart_code = cart_code) #retrieves the object if it exists or creates it if it doesn't
     product = Product.objects.get(id = product_id)
-    cartitem, created =  CartItem.object.get_or_create(product = product, Cart = Cart)
-    CartItem.quantity = 1
-    CartItem.save()
+    cartitem, created =  CartItem.objects.get_or_create(product = product, cart = cart)
+    cartitem.quantity = 1
+    cartitem.save()
 
-    serializer = CartSerializer(Cart)
+    serializer = CartSerializer(cart)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def update_cartitem_quantity(request):
+   cartitem_id = request.data.get('item_id')
+   quantity = request.data.get("quantity")
+
+   quantity = int(quantity) 
+   cartitem = CartItem.objects.get(id = cartitem_id)
+   cartitem.quantity = quantity
+   cartitem.save()
+
+   serializer =  CartItemSerializer(cartitem)     
+   return Response({"data": serializer.data, "message": "CartItem Updated Successfully"})
