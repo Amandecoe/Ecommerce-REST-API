@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.utils.text import slugify
 # Create your models here.
 class CustomUser(AbstractUser):
     email = models.EmailField(unique = True)
@@ -27,3 +28,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs): #slugify the name and set it to unique_slug and make sure every slug is unique and it does not exist before, if it exists add a number to it to make it unique
+        if not self.slug:
+            self.slug = slugify(self.name)
+            unique_slug = self.slug
+            counter = 1
+            if Product.objects.filter(slug = unique_slug).exists():
+                unique_slug = f'{self.slug}-{counter}'
+                counter += 1
+            self.slug - unique_slug
+        super().save(*args, **kwargs)    
+
