@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
-from .models import Product, Category, Cart, CartItem, Review
-from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer
+from .models import Product, Category, Cart, CartItem, Review, Wishlist
+from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer
 
 User =  get_user_model()
 # @api_view turns a normal django view function into a REST API endpoint 
@@ -102,13 +102,13 @@ def add_to_wishlist(request):
     product_id = request.data.get("product_id")
 
     user = User.objects.get(email = email)
-    product = Product.object.get(id = product_id)
+    product = Product.objects.get(id = product_id)
 
-    wishlist =  Wishlist.objects.fiter(user = user, product = product)    
+    wishlist =  Wishlist.objects.filter(user = user, product = product)    
     if wishlist:
         wishlist.delete()
         return Response("Wishlist deleted sucessfully", status = 204)
 
     new_wishlist = Wishlist.objects.create(user= user, product = product)
     serializer = WishlistSerializer(new_wishlist)
-    return Resposne(serializer.data)    
+    return Response(serializer.data)    
