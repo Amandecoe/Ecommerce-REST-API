@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-t*v3h3+3ek9d5g=v!ock($$*y2616rs_ll-$&u+n17(e_tn^dp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["glairy-camron-unpenitently.ngrok-free.dev", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://glairy-camron-unpenitently.ngrok-free.dev"]
 
 
 # Application definition
@@ -74,13 +75,23 @@ WSGI_APPLICATION = 'EcommerceApi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+  #  'default': {
+   #     'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default' : {
+      'ENGINE' : 'django.db.backends.postgresql',
+      'NAME' : 'railway',
+      'USER' : 'postgres',
+      'PASSWORD' : 'MobUnpEYjnCoWthRZNjvihuVBGHyvdBk',
+      'HOST' : 'tramway.proxy.rlwy.net',
+      'PORT' : '29211',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
