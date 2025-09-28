@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.db.models import Q
 from django.contrib.auth import get_user_model
 from .models import Product, Category, Cart, CartItem, Review, Wishlist
 from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer
@@ -120,3 +121,13 @@ def delete_cartitem(request, pk):
 
     return Response("Cart Item Deleted Sucessfully")        
    
+@api_view(['GET'])
+def product_search(request):
+    query = request.query_params.get("query")
+    if not query:
+        return Response("No Query Provided", status=400)
+
+    products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(category__name__icontains = query)) #Q is a django built in feature which helps us to search 
+
+    serializer = ProductListSerializer(products, many = True) #can return many products that match the search
+    return Response(serializer.data)
