@@ -85,7 +85,7 @@ class Review(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
-        return f"{self.user.user}'s review on {self.product.name}"
+        return f"{self.user.username}'s review on {self.product.name}"
 
     class Meta:
         unique_together = ["user", "product"] #a user can only have 1 review on 1 product

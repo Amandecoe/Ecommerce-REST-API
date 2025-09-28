@@ -63,10 +63,10 @@ class CarStatSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["id", "first_name", "last_name", "profile_picture"]
+        fields = ["id", "first_name", "last_name", "profile_picture_url"]
 
 class ReviewSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only = True)
     class Meta:
         model = Review
-        fields = ["id","user", "rating", "review", "created", "updated"]
+        fields = ["id","user", "rating", "review", "created_at", "updated_at"]

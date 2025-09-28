@@ -9,9 +9,9 @@ def update_product_rating_on_save(sender, instance, **kwargs): #which gives aver
     reviews = product.reviews.all()
     total_reviews = reviews.count()
 
-    review_average = revoews.aggregate(Avg("rating"))["rating__avg"] or 0.0
+    review_average = reviews.aggregate(Avg("rating"))["rating__avg"] or 0.0
 
-    product_rating, created = ProductRating.Objects.get_or_create(product = product)
+    product_rating, created = ProductRating.objects.get_or_create(product = product)
     product_rating.average_rating = review_average
     product_rating.total_reviews = total_reviews
     product_rating.save()
@@ -22,7 +22,7 @@ def update_product_rating_on_delete(sender, instance, **kwargs): #which gives av
     reviews = product.reviews.all()
     total_reviews = reviews.count()
 
-    review_average = revoews.aggregate(Avg("rating"))["rating__avg"] or 0.0
+    review_average = reviews.aggregate(Avg("rating"))["rating__avg"] or 0.0
 
     product_rating, created = ProductRating.Objects.get_or_create(product = product)
     product_rating.average_rating = review_average
