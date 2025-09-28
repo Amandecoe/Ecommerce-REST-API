@@ -90,16 +90,16 @@ Create a database, e.g., nexus_db.
 
 Update settings.py:
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nexus_db',
-        'USER': 'your_postgres_user',
-        'PASSWORD': 'your_postgres_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+ DATABASES = {
+        'default' : {
+            'ENGINE' : 'django.db.backends.postgresql',
+            'NAME' : 'railway',
+            'USER' : 'postgres',
+            'PASSWORD' : 'MobUnpEYjnCoWthRZNjvihuVBGHyvdBk',
+            'HOST' : 'tramway.proxy.rlwy.net',
+            'PORT' : '29211',
+        }
+     }
 
 5. Apply Migrations
 python manage.py makemigrations
