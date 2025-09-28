@@ -112,3 +112,11 @@ def add_to_wishlist(request):
     new_wishlist = Wishlist.objects.create(user= user, product = product)
     serializer = WishlistSerializer(new_wishlist)
     return Response(serializer.data)    
+
+@api_view(['DELETE'])
+def delete_cartitem(request, pk):
+    cartitem = CartItem.objects.get(id=pk)
+    cartitem.delete()
+
+    return Response("Cart Item Deleted Sucessfully")        
+   
