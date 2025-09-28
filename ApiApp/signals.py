@@ -24,7 +24,7 @@ def update_product_rating_on_delete(sender, instance, **kwargs): #which gives av
 
     review_average = reviews.aggregate(Avg("rating"))["rating__avg"] or 0.0
 
-    product_rating, created = ProductRating.Objects.get_or_create(product = product)
+    product_rating, created = ProductRating.objects.get_or_create(product = product)
     product_rating.average_rating = review_average
     product_rating.total_reviews = total_reviews
     product_rating.save()    

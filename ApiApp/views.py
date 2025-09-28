@@ -95,3 +95,20 @@ def delete_review(request, pk):
     review.delete()
 
     return Response("Review Deleted Sucessfully")        
+
+@api_view(['POST'])
+def add_to_wishlist(request):
+    email = request.data.get("email")
+    product_id = request.data.get("product_id")
+
+    user = User.objects.get(email = email)
+    product = Product.object.get(id = product_id)
+
+    wishlist =  Wishlist.objects.fiter(user = user, product = product)    
+    if wishlist:
+        wishlist.delete()
+        return Response("Wishlist deleted sucessfully", status = 204)
+
+    new_wishlist = Wishlist.objects.create(user= user, product = product)
+    serializer = WishlistSerializer(new_wishlist)
+    return Resposne(serializer.data)    
