@@ -21,7 +21,7 @@ License
 ### Project Overview
 
 ALX Project Nexus is a production-ready backend API for an e-commerce platform.
-It provides all the core functionalities needed for online shopping applications, including:
+It provides all the core functionalities needed for online shopping applications, Those include:
 
 User registration and authentication
 
@@ -60,6 +60,7 @@ Reviews & Ratings: Users can review products once and update them
 Admin Dashboard: Full control of products, orders, and users
 
 ### Installation
+
 1. Clone the Repository
 git clone https://github.com/Amandecoe/alx-project-nexus.git
 cd alx-project-nexus
