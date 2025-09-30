@@ -13,18 +13,20 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 
 ## How to install this Project on Your Machine
 
-1. Clone the project
+### 1. Clone the project
   ```bash
     git clone https://github.com/Amandecoe/alx-project-nexus.git
        cd your-repo
-
+  ```
 2. Activate the Production Environment
    ```bash
    For Windows
      - ecommerceEnv/Scripts/activate.bat
+   ```  
   ```bash
    For Mac/Linux
      - source/ecommerceEnv/Scripts/activate
+   ```
 
 3. Install these dependencies on your machine 
    - 'pip install django, djangorestframework, pillow, djangorestframework-simplejwt'
