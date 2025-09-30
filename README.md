@@ -30,6 +30,24 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 
 ### 3. Install these dependencies on your machine 
    ```bash
-   - 'pip install django, djangorestframework, pillow, djangorestframework-simplejwt'
-    ```
+   - pip install django, djangorestframework, pillow, djangorestframework-simplejwt
+   ```
+
+### 4. Run Migrations
+  ```bash
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
+
+### 5. Create SuperUser (Admin)
+ ```bash
+ python manage.py createsuperuser
+ ```
+
+### 6. Run the Development Server
+ ```bash
+ python manage.py runserver
+ ```
+
+ * Access Django Admin : http://127.0.0.1:8000/admin
 
