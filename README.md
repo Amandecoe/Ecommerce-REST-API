@@ -19,12 +19,12 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
        cd your-repo
   ```
 2. Activate the Production Environment
+   For Windows 
    ```bash
-   For Windows
      - ecommerceEnv/Scripts/activate.bat
    ```  
-  ```bash
    For Mac/Linux
+   ```bash
      - source/ecommerceEnv/Scripts/activate
    ```
 
