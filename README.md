@@ -10,3 +10,15 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 * Create Easy and Maintainable Views and Serializers for Your app
 * How to use signals on your REST API 
 * Customize your Django Settings inorder to use SQLite3 for production and PostgreSQL for deployment in your database configuration
+
+## How to install this Project on Your Machine
+
+1. Clone the project
+2. Activate the Production Environment
+   For Windows
+     - 'ecommerceEnv/Scripts/activate.bat'
+   For Mac/Linux
+     - 'source/ecommerceEnv/Scripts/activate'  
+3. Install these dependencies on your machine 
+   - 'pip install django, djangorestframework, pillow, djangorestframework-simplejwt'
+
