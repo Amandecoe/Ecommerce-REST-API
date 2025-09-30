@@ -1,13 +1,20 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from django.db.models import Q
 from django.contrib.auth import get_user_model
 from .models import Product, Category, Cart, CartItem, Review, Wishlist
 from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer
+from rest_framework.permissions import IsAuthenticated
 
 User =  get_user_model()
 # @api_view turns a normal django view function into a REST API endpoint 
+
+@api_view(['GET'])
+@permission_classes ([IsAuthenticated])
+def protected_view(request):
+    return Response({"message": f"Hello {request.user.username}, you are authenticated!"})
+
 
 @api_view(["GET"]) #this function will only support GET requests
 def product_list(request):
