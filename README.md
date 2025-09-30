@@ -14,10 +14,9 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 ## How to install this Project on Your Machine
 
 1. Clone the project
-```bash
-git clone https://github.com/Amandecoe/alx-project-nexus.git
-cd your-repo
-
+  ```bash
+    git clone https://github.com/Amandecoe/alx-project-nexus.git
+       cd your-repo
 
 2. Activate the Production Environment
    For Windows
