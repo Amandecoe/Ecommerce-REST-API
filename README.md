@@ -19,10 +19,13 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
        cd your-repo
 
 2. Activate the Production Environment
+ ```bash
    For Windows
-     - 'ecommerceEnv/Scripts/activate.bat'
+     - ecommerceEnv/Scripts/activate.bat
+```bash
    For Mac/Linux
-     - 'source/ecommerceEnv/Scripts/activate'  
+     - source/ecommerceEnv/Scripts/activate
+       
 3. Install these dependencies on your machine 
    - 'pip install django, djangorestframework, pillow, djangorestframework-simplejwt'
 
