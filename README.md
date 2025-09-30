@@ -17,6 +17,8 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 ```bash
 git clone https://github.com/Amandecoe/alx-project-nexus.git
 cd your-repo
+
+
 2. Activate the Production Environment
    For Windows
      - 'ecommerceEnv/Scripts/activate.bat'
