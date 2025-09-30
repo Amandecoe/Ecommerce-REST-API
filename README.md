@@ -28,6 +28,8 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
      - source/ecommerceEnv/Scripts/activate
    ```
 
-3. Install these dependencies on your machine 
+### 3. Install these dependencies on your machine 
+   ```bash
    - 'pip install django, djangorestframework, pillow, djangorestframework-simplejwt'
+    ```
 
