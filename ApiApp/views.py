@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import Product, Category, Cart, CartItem, Review, Wishlist, Payment
 from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer, PaymentSerializer
 from rest_framework.permissions import IsAuthenticated
+from .tasks import send_order_confirmation_email
 
 User =  get_user_model()
 # @api_view turns a normal django view function into a REST API endpoint 
