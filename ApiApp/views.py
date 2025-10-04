@@ -143,8 +143,14 @@ def product_search(request):
 def create_payment(request):
     serializer = PaymentSerializer(data=request.data)
     if serializer.is_valid():
-        serializer.save(user=request.user, status = "PAID")
+        #saves a new payment record into the DB and links the user to the logged in user
+        payment = serializer.save(user=request.user, status = "PAID")
+        #background email task triggering if valid
+        # the .delay() means it sends this task to rabbitmq and passes the user email and id as arguments
+        send_order_confirmation_email.delay(request.user.email, payment.order.id)
+        #returns the newly created Payment data in the response
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #if the validation failed this error message will appear    
     return Response(serializer.errors, status = status.HTTP400_BAD_REQUEST)    
 
  @api_view(['GET'])
