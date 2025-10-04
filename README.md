@@ -92,3 +92,7 @@ Run
   celery -A EcommerceApi worker -l info
   ```
 
+## Tips
+   * Use environment variables for sensitive info (EMAIL_HOST_PASSWORD).
+   * Always run RabbitMQ, Celery worker, and Celery Beat before triggering tasks.
+   * Celery Beat handles scheduled tasks (like weekly newsletters).
