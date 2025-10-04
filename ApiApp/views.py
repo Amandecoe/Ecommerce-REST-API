@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from django.db.models import Q
 from django.contrib.auth import get_user_model
-from .models import Product, Category, Cart, CartItem, Review, Wishlist
-from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer
+from .models import Product, Category, Cart, CartItem, Review, Wishlist, Payment
+from .serializers import ProductListSerializer, ProductDetailSerializer, CategoryListSerializer, CartSerializer, CartItemSerializer, ReviewSerializer, WishlistSerializer, PaymentSerializer
 from rest_framework.permissions import IsAuthenticated
 
 User =  get_user_model()

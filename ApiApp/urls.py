@@ -15,4 +15,6 @@ urlpatterns = [
     path ("delete_cartitem/<int:pk>/", views.delete_cartitem, name = "delete_cartitem" ),
     path ("search/", views.product_search, name = "product_search"),
     path('api/protected/', views.protected_view, name='protected'),
+    path ("payments/", views.list_payment, name = "list_payments"),
+    path ("payments/create/", views.create_payment, name = "create_payment"),
 ]
