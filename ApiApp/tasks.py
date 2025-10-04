@@ -1,7 +1,6 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from django.conf import settings
-
 @shared_task
 #any function marked with this decorator becomes a celery task that workers can execute asynchronously
 # it can be called with .delay() from anywhere in Django

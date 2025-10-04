@@ -159,3 +159,12 @@ SIMPLE_JWT = {
 
 CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672//" #default rabbitmq connection string(username, password, host,port)
 CELERY_RESULT_BACKEND = "rpc://"  #celery setup with rabbitmq
+
+#Email configuration
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "amanuelbehailu557@gmail.com"
+EMAIL_HOST_PASSWORD = "sgkwafartsxoitcd"  # must be app password if 2FA enabled
+DEFAULT_FROM_EMAIL = "amanuelbehailu557@gmail.com"
