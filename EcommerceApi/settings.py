@@ -156,3 +156,6 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),  # default is 5 minutes
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),     # default is 1 day
 }
+
+CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672//" #default rabbitmq connection string(username, password, host,port)
+CELERY_RESULT_BACKEND = "rpc://"  #celery setup with rabbitmq
