@@ -138,3 +138,17 @@ def product_search(request):
 
     serializer = ProductListSerializer(products, many = True) #can return many products that match the search
     return Response(serializer.data)
+
+@api_view (['POST'])
+def create_payment(request):
+    serializer = PaymentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save(user=request.user, status = "PAID")
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status = status.HTTP400_BAD_REQUEST)    
+
+ @api_view(['GET'])
+ def list_payments(request):
+    payments = Payment.objects.filter(user = request.user)
+    serialier = PaymentSerializer(payments, many=True)
+    return Response(serializer.data, status = status.HTTP_200_OK)   
