@@ -5,7 +5,7 @@ from django.conf import settings
 @shared_task
 #any function marked with this decorator becomes a celery task that workers can execute asynchronously
 # it can be called with .delay() from anywhere in Django
-def send_confirmation_email(user_email, order_id):
+def send_order_confirmation_email(user_email, order_id):
     subject = "Your Order Confirmation"
     message = f"Thank you for your purchase, Your order ID is {order_id}."
     

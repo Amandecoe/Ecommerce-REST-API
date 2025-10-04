@@ -154,8 +154,8 @@ def create_payment(request):
     #if the validation failed this error message will appear    
     return Response(serializer.errors, status = status.HTTP400_BAD_REQUEST)    
 
- @api_view(['GET'])
- def list_payments(request):
+@api_view (['GET'])
+def list_payments(request):
     payments = Payment.objects.filter(user = request.user)
     serialier = PaymentSerializer(payments, many=True)
     return Response(serializer.data, status = status.HTTP_200_OK)   

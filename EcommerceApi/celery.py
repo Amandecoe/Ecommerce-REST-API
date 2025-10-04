@@ -1,5 +1,5 @@
 import os
-from celery import celery
+from celery import Celery
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "EcommerceApi.settings")
 
