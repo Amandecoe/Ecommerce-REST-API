@@ -70,8 +70,25 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
   Windows
        Open Services, find RabbitMQ, right-click → Start
   ```
-  ### 2. Verify RabbitMQ is Running
+  #### 2. Verify RabbitMQ is Running
   ``` bash
    rabbitmqctl status
   ```       
+### 3.📧 Configure Django Email Settings
+
+Add in settings.py (example using Gmail SMTP):
+```
+ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+ EMAIL_HOST = "smtp.gmail.com"
+ EMAIL_PORT = 587
+ EMAIL_USE_TLS = True
+ EMAIL_HOST_USER = "your_email@gmail.com"
+ EMAIL_HOST_PASSWORD = "your_16_char_app_password"  # App Password, no spaces
+ DEFAULT_FROM_EMAIL = "your_email@gmail.com"
+```
+### 4. Run Celery Worker and Beat
+Run 
+ ```
+  celery -A EcommerceApi worker -l info
+  ```
 
