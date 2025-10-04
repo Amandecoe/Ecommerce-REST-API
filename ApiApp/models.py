@@ -110,3 +110,12 @@ class Wishlist(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.product.name}"
 
+class Payment(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "Payment")
+    product = models.ForeignKey(Product, on_delete = models.CASCADE, related_name = "Payment")
+    total_price = models.FloatField(default = 0.0)
+    class PaymentStatus(models.TextChoices):  # This is not a separate table — just an enum definition
+        PENDING = 'pending', 'Pending'
+        PAID = 'paid', 'Paid'
+        UNPAID = 'unpaid', 'Unpaid'
+    PaymentStatus = models.CharField(max_length=30, choices = PaymentStatus.choices, default = PaymentStatus.PENDING)

@@ -77,3 +77,8 @@ class WishlistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Wishlist
         fields = ["id", "user", "product", "created"]
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payment
+        fields = ["id", "user", "product", "total_price", "PaymentStatus"]
