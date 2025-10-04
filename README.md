@@ -64,9 +64,10 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 ```
 ### 2.🏌️‍♀️ Configure RabbitMQ
  #### 1. Start RabbitMQ
-  ``` Linux/Mac
+  ``` 
+  Linux/Mac
        sudo service rabbitmq-server start
-      Windows
+  Windows
        Open Services, find RabbitMQ, right-click → Start
   ```
   ### 2. Verify RabbitMQ is Running
