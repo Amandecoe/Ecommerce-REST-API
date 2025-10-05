@@ -17,3 +17,18 @@ def send_order_confirmation_email(user_email, order_id):
     )
     #sends the actual email
     return f"Email sent to {user_email} for order {order_id}"
+
+@shared_task
+def send_weekly_newsletter():
+    users = User.objects.filter(is_active = True) #for all active users
+
+    for user in users:
+        subject = "Your Weekly Deals & Recommendations"
+        message = f"Hi {user.username}, Don't miss out on the new products and special deals this week! " 
+        send_mail (
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            [user.email],
+            fail_silently = False #raises an error if it fails
+        )  
