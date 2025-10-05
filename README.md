@@ -90,7 +90,7 @@ Add in settings.py (example using Gmail SMTP):
 ### 4. Run Celery Worker and Beat
 Open two terminals:
  ```
-  celery -A EcommerceApi worker -l info
+  celery -A EcommerceApi worker -l info --pool=solo
   ```
  ```
  celery -A EcommerceApi beat -l info
