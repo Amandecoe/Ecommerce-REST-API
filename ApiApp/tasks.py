@@ -1,6 +1,10 @@
 from celery import shared_task
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth import get_user_model
+
+User = get_user_model() #gets the active user model
+
 @shared_task
 #any function marked with this decorator becomes a celery task that workers can execute asynchronously
 # it can be called with .delay() from anywhere in Django

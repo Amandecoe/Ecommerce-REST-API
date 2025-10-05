@@ -10,6 +10,7 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 * Create Easy and Maintainable Views and Serializers for Your app
 * How to use signals on your REST API 
 * Email notifications after a purchase is made
+* Weekly newsletters implementation using Celery beat and RabbitMQ
 * Customize your Django Settings inorder to use SQLite3 for production and PostgreSQL for deployment in your database configuration
 
 ## 🏧 How to install this Project on Your Machine
@@ -87,10 +88,13 @@ Add in settings.py (example using Gmail SMTP):
  DEFAULT_FROM_EMAIL = "your_email@gmail.com"
 ```
 ### 4. Run Celery Worker and Beat
-Run 
+Open two terminals:
  ```
   celery -A EcommerceApi worker -l info
   ```
+ ```
+ celery -A EcommerceApi beat -l info
+ ```
 
 ## Tips
    * Use environment variables for sensitive info (EMAIL_HOST_PASSWORD).
