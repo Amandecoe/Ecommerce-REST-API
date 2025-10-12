@@ -15,8 +15,8 @@ COPY --from=ghcr.io/astral-sh/uv:0.4.9 /uv /bin/uv
 #installs uv
 #uv provides both distroless Docker images, which are useful for copying uv binaries into your own image builds, and images derived from popular base images, which are useful for using uv in a container.
 
-COPY EcommerceApi/requirements.txt .
-RUN uv pip install -r requirements.txt --system
+COPY requirements.txt .
+RUN  pip install -r requirements.txt 
 #installs the requirements file
 
 COPY EcommerceApi/ .
