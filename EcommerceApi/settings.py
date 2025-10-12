@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'EcommerceApi.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 
-    DATABASES = {
+DATABASES = {
         'default' : {
             'ENGINE' : 'django.db.backends.postgresql',
             'NAME' : os.environ['POSTGRES_DB'],
@@ -85,8 +85,8 @@ WSGI_APPLICATION = 'EcommerceApi.wsgi.application'
             'PASSWORD' : os.environ['POSTGRES_PASSWORD'],
             'HOST' : os.environ['DB_HOST'],
             'PORT' : os.environ['DB_PORT']
-        }
      }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
