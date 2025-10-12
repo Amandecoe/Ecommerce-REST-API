@@ -7,3 +7,12 @@ services:
      - 8000:8000 #port mapping
     volumes:
      - .:/app #when any files are changed on the source folder it is going to be updated the new build one
+  db:
+    image: postgres:17
+    container_name: postgres_db
+    volumes:
+     - postgres_db:/var/lib/postgresql/data/ #is where the database's data are stored, makes the data available when container starts
+    environment:
+      - POSTGRES_PASSWORD: 
+volumes:
+  postgres_db:     
