@@ -3,6 +3,6 @@ services:
     build: . #dockerfile is inside the same directory
     container_name: ecommerce_app
     ports:
-     -8000:8000 #port mapping
+     - 8000:8000 #port mapping
     volumes:
      - ./EcommerceApi:/app #when any files are changed on the source folder it is going to be updated the new build one
