@@ -26,5 +26,18 @@ services:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]  
       interval: 10s
       retries: 5
+  celery:
+    build: .
+    command: celery -A EcommerceApi worker --loglevel=info
+    volumes:
+      - .:/code
+    depends_on:
+      - web
+      - rabbitmq
+  rabbitmq:
+   image: rabbitmq:3-management
+   ports: 
+     - "5672:5672" #broker port, used by Celery to communicate with RabbitMQ
+     - "15672:15672" #management UI
 volumes:
   postgres_db:     
