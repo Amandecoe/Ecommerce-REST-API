@@ -55,7 +55,7 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 
 ## Celery Setup
 
-### This guide explains how to set up Celery with RabbitMQ for background tasks in the EcommerceApi Django project, including sending order confirmation emails and weekly newsletters.
+### This guide explains how to set up Celery with RabbitMQ for background tasks in the EcommerceApi Django project, including sending order confirmation emails and weekly newsletters through email.
 
 ### 1.🔠 Install Required Packages
   ```
