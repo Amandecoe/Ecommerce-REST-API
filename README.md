@@ -11,7 +11,7 @@ This project is a Capstone Final project for the ALX pro-dev backend program whi
 * How to use signals on your REST API 
 * Email notifications after a purchase is made
 * Weekly newsletters implementation using Celery beat and RabbitMQ
-* Customize your Django Settings inorder to use SQLite3 for production and PostgreSQL for deployment in your database configuration
+* Customize your Django Settings inorder to use PostgreSQL for deployment in your database configuration
 
 ## 🏧 How to install this Project on Your Machine
 
