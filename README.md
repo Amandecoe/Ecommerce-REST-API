@@ -1,6 +1,5 @@
-# 🎰 ALX Project Nexus
 
-## A Fully Functional Ecommerce REST API Written in Django 
+# A Fully Functional Ecommerce REST API Written in Django 
 
 This project is a Capstone Final project for the ALX pro-dev backend program which equips you with different Backend Programming skills. In this Project I have built an Ecommerce REST API with JWT authentication and then deployed it on a Live PostgreSQL server on Docker with Celery background task automation using RabbitMQ as a Broker. This project show you how to do the following:
 
